@@ -1,0 +1,52 @@
+<h3>{{viewTitle}}</h3>
+
+    <form action="/client" method="POST" autocomplete="off">
+        <input type="hidden" name="_id" value="{{client._id}}">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" name="fullName" value="{{client.fullName}}" placeholder="Full Name">
+                        <div class="text-danger">
+                {{client.fullNameError}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" value="{{client.email}}" placeholder="Email">
+            <div class="text-danger">
+                    {{client.emailError}}
+                </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group md-6">
+                <label>CPF</label>
+                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" onkeyup="mascaraCpf('•••.•••.•••-••', this)">
+             </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-info"><i class="fa fa-database"></i>Submit</button>
+            <a href="/client/list" class="btn btn-danger">
+                <i class="fa fa-list-alt"></i>View All
+            </a>
+        </div>
+    </form>
+
+<script>
+    function mascaraCpf(mascara, input){
+  const vetMask = mascara.split('')
+  const numCpf = input.value.replace(/\D/g, "")
+  const cursor = input.selectionStart
+  const tecla = (window.event) ? event.keyCode : event.which
+
+ for (let i=0; i<numCpf.length; i++){
+     vetMask.splice(vetMask.indexOf("•"), 1, numCpf[i])
+ }
+
+    input.value = vetMask.join("")
+
+    if(tecla != 37 && (cursor == 3 || cursor == 7 || cursor == 11)){
+        input.setSelectionRange(cursor+1, cursor+1)
+    } else {
+        input.setSelectionRange(cursor, cursor)
+    }
+}
+</script>
