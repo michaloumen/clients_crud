@@ -4,14 +4,14 @@
         <input type="hidden" name="_id" value="{{client._id}}">
         <div class="form-group">
             <label>Full Name</label>
-            <input type="text" class="form-control" name="fullName" value="{{client.fullName}}" placeholder="Full Name">
+            <input type="text" class="form-control" name="fullName" value="{{client.fullName}}" placeholder="Full Name" required>
                         <div class="text-danger">
                 {{client.fullNameError}}
             </div>
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input type="email" class="form-control" name="email" value="{{client.email}}" placeholder="Email">
+            <input type="email" class="form-control" name="email" value="{{client.email}}" placeholder="Email" required>
             <div class="text-danger">
                     {{client.emailError}}
                 </div>
@@ -19,7 +19,7 @@
         <div class="form-row">
             <div class="form-group md-6">
                 <label>CPF</label>
-                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" onkeyup="mascaraCpf('•••.•••.•••-••', this)">
+                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" onkeyup="mascaraCpf('•••.•••.•••-••', this)" required>
              </div>
 
         <div class="form-group">

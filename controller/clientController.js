@@ -6,6 +6,8 @@ const Client = mongoose.model('Client');
 
 const router = express.Router();
 
+const { isCpf } = require('iscpf')
+
 router.get("/",(req,res) => {
     res.render("client/addOrEdit",{
         viewTitle:"Insert Client"
