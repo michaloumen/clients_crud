@@ -10,7 +10,7 @@ const expressHandlebars = require('express-handlebars');
 
 const clientController = require('./controller/clientController');
 
-var app = express();
+const app = express();
 
 app.use(bodyParser.urlencoded({
     extended:true
@@ -28,8 +28,8 @@ app.engine('hbs',expressHandlebars({
 
 app.set('view engine','hbs');
 
-app.listen(5002,() => {
-    console.log("Server is listening on Port 5002");
+app.listen(3003,() => {
+    console.log(`Server is listening on Port: 3003`);
 })
 
 app.use('/client',clientController);

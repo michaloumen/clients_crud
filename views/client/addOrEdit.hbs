@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input type="email" class="form-control" name="email" value="{{client.email}}" placeholder="Email" required>
+            <input type="email" class="form-control" name="email" value="{{client.email}}" placeholder="Email" required >
             <div class="text-danger">
                     {{client.emailError}}
                 </div>
@@ -19,19 +19,19 @@
         <div class="form-row">
             <div class="form-group md-6">
                 <label>CPF</label>
-                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" onkeyup="mascaraCpf('•••.•••.•••-••', this)" required>
+                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" onkeyup="mascaraCpf('•••.•••.•••-••', this)" value="{{client.cpf}}" required>
              </div>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-info"><i class="fa fa-database"></i>Submit</button>
+            <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
             <a href="/client/list" class="btn btn-danger">
-                <i class="fa fa-list-alt"></i>View All
+                <i class="fa fa-list-alt"></i> View All
             </a>
         </div>
     </form>
 
 <script>
-function mascaraCpf(mascara, input){
+    function mascaraCpf(mascara, input){
   const vetMask = mascara.split('')
   const numCpf = input.value.replace(/\D/g, "")
   const cursor = input.selectionStart

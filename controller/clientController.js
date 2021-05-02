@@ -1,12 +1,11 @@
 const express = require('express');
+const { isCpf } = require('iscpf');
 
 const mongoose = require('mongoose');
 
 const Client = mongoose.model('Client');
 
 const router = express.Router();
-
-const { isCpf } = require('iscpf')
 
 router.get("/",(req,res) => {
     res.render("client/addOrEdit",{
@@ -26,7 +25,7 @@ router.post("/",(req,res) => {
 
 function insertRecord(req,res)
 {
-   var client = new Client();
+   const client = new Client();
 
    client.fullName = req.body.fullName;
 
@@ -119,6 +118,10 @@ function handleValidationError(err,body){
         case 'email':
               body['emailError'] = err.errors[field].message;
               break;
+
+        case 'cpf':
+            body['cpfError'] = err.errors[field].message;
+            break;
 
         default:
            break;
