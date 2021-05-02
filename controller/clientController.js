@@ -1,5 +1,4 @@
 const express = require('express');
-const { isCpf } = require('iscpf');
 
 const mongoose = require('mongoose');
 
