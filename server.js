@@ -12,6 +12,8 @@ const clientController = require('./controller/clientController');
 
 const app = express();
 
+require('dotenv').config();
+
 app.use(bodyParser.urlencoded({
     extended:true
 }));
@@ -28,8 +30,8 @@ app.engine('hbs',expressHandlebars({
 
 app.set('view engine','hbs');
 
-app.listen(3003,() => {
-    console.log(`Server is listening on Port: 3003`);
-})
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on http://localhost:${process.env.PORT}`);
+});
 
 app.use('/client',clientController);
