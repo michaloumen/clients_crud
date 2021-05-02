@@ -28,8 +28,8 @@ app.engine('hbs',expressHandlebars({
 
 app.set('view engine','hbs');
 
-app.listen(5000,() => {
-    console.log("Server is listening on Port 5000");
+app.listen(5002,() => {
+    console.log("Server is listening on Port 5002");
 })
 
 app.use('/client',clientController);

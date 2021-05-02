@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 var validator = require("email-validator");
+const { isCpf } = require('iscpf')
 
 var clientSchema = new mongoose.Schema({
     fullName:{
@@ -18,5 +19,9 @@ var clientSchema = new mongoose.Schema({
 clientSchema.path('email').validate((val) => {
     return validator.validate(val);
 },'Invalid Email');
+
+clientSchema.path('cpf').validate((val) => {
+    return isCpf(val);
+});
 
 mongoose.model('Client',clientSchema);
