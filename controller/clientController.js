@@ -37,13 +37,6 @@ function insertRecord(req,res)
             res.redirect('client/list');
         }
         else{
-            if(err.name == "ValidationError"){
-                handleValidationError(err,req.body);
-                res.render("client/addOrEdit",{
-                    viewTitle:"Insert Client",
-                    client:req.body
-                })
-            }
             console.log("Error occured during record insertion" + err);
         }
     })
@@ -56,17 +49,7 @@ function updateRecord(req,res)
             res.redirect('client/list');
         }
         else{
-            if(err.name == "ValidationError")
-            {
-                handleValidationError(err,req.body);
-                res.render("client/addOrEdit",{
-                    viewTitle:'Update Client',
-                    client:req.body
-                });
-            }
-            else{
                 console.log("Error occured in Updating the records" + err);
-            }
         }
     })
 }
@@ -103,27 +86,5 @@ router.get('/delete/:id',(req,res) => {
         }
     })
 })
-
-function handleValidationError(err,body){
-    for(field in err.errors)
-    {
-        switch(err.errors[field].path){
-        case 'fullName':
-            body['fullNameError'] = err.errors[field].message;
-            break;
-        
-        case 'email':
-            body['emailError'] = err.errors[field].message;
-            break;
-
-        case 'cpf':
-            body['cpfError'] = err.errors[field].message;
-            break;
-
-        default:
-            break;
-        }
-    }
-}
 
 module.exports = router;

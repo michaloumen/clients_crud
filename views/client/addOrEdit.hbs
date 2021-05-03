@@ -4,16 +4,16 @@
         <input type="hidden" name="_id" value="{{client._id}}">
         <div class="form-group">
             <label>Full Name</label>
-            <input type="text" class="form-control" name="fullName" value="{{client.fullName}}" placeholder="Full Name" required>
+            <input type="text" class="form-control" name="fullName" value="{{client.fullName}}" placeholder="ex: Michelle Mendonça" required>
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input type="email" class="form-control" name="email" value="{{client.email}}" placeholder="Email" required >
+            <input type="email" class="form-control" name="email" value="{{client.email}}" placeholder="Ex: michelle@gmail.com" required >
         </div>
         <div class="form-row">
             <div class="form-group md-6">
                 <label>CPF</label>
-                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" onkeyup="mascaraCpf('•••.•••.•••-••', this)" value="{{client.cpf}}" required>
+                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Ex: •••.•••.•••-••" onkeyup="mascaraCpf('•••.•••.•••-••', this)" value="{{client.cpf}}" required>
             </div>
         </div>
 

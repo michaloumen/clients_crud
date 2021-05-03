@@ -1,19 +1,17 @@
 const mongoose = require('mongoose');
 const validator = require("email-validator");
-const { isCpf } = require('iscpf')
+const { isCpf } = require('iscpf');
 
 const clientSchema = new mongoose.Schema({
     fullName:{
-        type:String,
-        required: 'This field is required'
+        type:String
     },
     email:{
-        type:String,
-        require: true
+        type:String
     },
     cpf:{
         type:String,
-        require: true
+        required: true
     },
 })
 
