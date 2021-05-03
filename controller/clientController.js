@@ -24,31 +24,29 @@ router.post("/",(req,res) => {
 
 function insertRecord(req,res)
 {
-   const client = new Client();
+    const client = new Client();
 
-   client.fullName = req.body.fullName;
+    client.fullName = req.body.fullName;
 
-   client.email = req.body.email;
+    client.email = req.body.email;
 
-   client.cpf = req.body.cpf;
+    client.cpf = req.body.cpf;
 
-   client.save((err,doc) => {
-       if(!err){
-        res.redirect('client/list');
-       }
-       else{
-           
-          if(err.name == "ValidationError"){
-              handleValidationError(err,req.body);
-              res.render("client/addOrEdit",{
-                  viewTitle:"Insert Client",
-                  client:req.body
-              })
-          }
-
-          console.log("Error occured during record insertion" + err);
-       }
-   })
+    client.save((err,doc) => {
+        if(!err){
+            res.redirect('client/list');
+        }
+        else{
+            if(err.name == "ValidationError"){
+                handleValidationError(err,req.body);
+                res.render("client/addOrEdit",{
+                    viewTitle:"Insert Client",
+                    client:req.body
+                })
+            }
+            console.log("Error occured during record insertion" + err);
+        }
+    })
 }
 
 function updateRecord(req,res)
@@ -78,7 +76,7 @@ router.get('/list',(req,res) => {
     Client.find((err,docs) => {
         if(!err) {
             res.render("client/list",{
-               list:docs
+                list:docs
             })
         }
     })
@@ -111,19 +109,19 @@ function handleValidationError(err,body){
     {
         switch(err.errors[field].path){
         case 'fullName':
-              body['fullNameError'] = err.errors[field].message;
-              break;
+            body['fullNameError'] = err.errors[field].message;
+            break;
         
         case 'email':
-              body['emailError'] = err.errors[field].message;
-              break;
+            body['emailError'] = err.errors[field].message;
+            break;
 
         case 'cpf':
             body['cpfError'] = err.errors[field].message;
             break;
 
         default:
-           break;
+            break;
         }
     }
 }

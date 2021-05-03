@@ -31,7 +31,7 @@ app.engine('hbs',expressHandlebars({
 app.set('view engine','hbs');
 
 app.listen(process.env.PORT, () => {
-  console.log(`Listening on http://localhost:${process.env.PORT}`);
+  console.log(`Listening on http://localhost:${process.env.PORT}/client`);
 });
 
 app.use('/client',clientController);

@@ -22,6 +22,7 @@ clientSchema.path('email').validate((val) => {
     return validator.validate(val);
 },'Invalid Email');
 
+// custom validation for cpf
 clientSchema.path('cpf').validate((val) => {
     return isCpf(val);
 });

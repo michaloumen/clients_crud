@@ -5,22 +5,17 @@
         <div class="form-group">
             <label>Full Name</label>
             <input type="text" class="form-control" name="fullName" value="{{client.fullName}}" placeholder="Full Name" required>
-                        <div class="text-danger">
-                {{client.fullNameError}}
-            </div>
         </div>
         <div class="form-group">
             <label>Email</label>
             <input type="email" class="form-control" name="email" value="{{client.email}}" placeholder="Email" required >
-            <div class="text-danger">
-                    {{client.emailError}}
-                </div>
         </div>
         <div class="form-row">
             <div class="form-group md-6">
                 <label>CPF</label>
                 <input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" onkeyup="mascaraCpf('•••.•••.•••-••', this)" value="{{client.cpf}}" required>
-             </div>
+            </div>
+        </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
@@ -31,15 +26,15 @@
     </form>
 
 <script>
-    function mascaraCpf(mascara, input){
-  const vetMask = mascara.split('')
-  const numCpf = input.value.replace(/\D/g, "")
-  const cursor = input.selectionStart
-  const tecla = (window.event) ? event.keyCode : event.which
+function mascaraCpf(mascara, input){
+    const vetMask = mascara.split('')
+    const numCpf = input.value.replace(/\D/g, "")
+    const cursor = input.selectionStart
+    const tecla = (window.event) ? event.keyCode : event.which
 
- for (let i=0; i<numCpf.length; i++){
-     vetMask.splice(vetMask.indexOf("•"), 1, numCpf[i])
- }
+    for (let i=0; i<numCpf.length; i++){
+        vetMask.splice(vetMask.indexOf("•"), 1, numCpf[i])
+    }
 
     input.value = vetMask.join("")
 
