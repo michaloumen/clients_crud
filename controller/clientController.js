@@ -32,7 +32,7 @@ function insertRecord(req,res)
 
     client.cpf = req.body.cpf;
 
-    client.save((err,doc) => {
+    client.save((err) => {
         if(!err){
             res.redirect('client/list');
         }
@@ -44,7 +44,7 @@ function insertRecord(req,res)
 
 function updateRecord(req,res)
 {
-    Client.findOneAndUpdate({_id:req.body._id,},req.body,{new:true},(err,doc) => {
+    Client.findOneAndUpdate({_id:req.body._id,},req.body,{new:true},(err) => {
         if(!err){
             res.redirect('client/list');
         }
@@ -77,7 +77,7 @@ router.get('/:id',(req,res) => {
 })
 
 router.get('/delete/:id',(req,res) => {
-    Client.findByIdAndRemove(req.params.id,(err,doc) => {
+    Client.findByIdAndRemove(req.params.id,(err) => {
         if(!err){
             res.redirect('/client/list');
         }
